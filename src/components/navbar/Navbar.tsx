@@ -50,7 +50,7 @@ const Navbar = () => {
                         <LogoutButton />
                     </div>
 
-                    <div>
+                    <div className={`${status==='authenticated' ? 'hidden' : 'flex'} items-center space-x-4`}>
                         <Link className='text-lg font-semibold text-black dark:text-white' href='/auth/login'>Login</Link>
                     </div>
                 </div>
