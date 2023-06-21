@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,5 +8,5 @@
 }
 
 body {
-  @apply bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300
+  @apply bg-gray-100 text-gray-700 dark:bg-slate-900 dark:text-gray-400 font-poppins
 }

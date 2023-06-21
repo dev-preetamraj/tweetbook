@@ -1,5 +1,4 @@
 import Layout from "@/components/hocs/Layout";
-import { useSession } from "next-auth/react";
 
 const TweetBook = () => {
   return (
