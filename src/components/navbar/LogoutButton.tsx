@@ -11,7 +11,7 @@ const LogoutButton = () => {
                 toast.success('Logged Out Successfully!');
             })
             .finally(() => {
-                router.push('/auth/login');
+                router.push('/');
             });
     };
     return (
