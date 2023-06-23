@@ -10,7 +10,8 @@ import {
     UsersIcon,
     DocumentTextIcon,
     EllipsisHorizontalIcon,
-    XMarkIcon
+    XMarkIcon,
+    UserGroupIcon
 } from '@heroicons/react/24/outline';
 import ThemeToggler from "@/components/utils/ThemeToggler";
 import LogoutButton from "@/components/navbar/LogoutButton";
@@ -56,7 +57,7 @@ const Navbar = () => {
                     <div className="hidden md:flex items-center space-x-10">
                         <ChartBarSquareIcon className="h-6 w-6 cursor-pointer hidden lg:block" />
                         <UserCircleIcon className="h-6 w-6 cursor-pointer hidden lg:block" />
-                        <UsersIcon className="h-6 w-6 cursor-pointer hidden xl:block"/>
+                        <UserGroupIcon className="h-6 w-6 cursor-pointer hidden xl:block"/>
                         <DocumentTextIcon className="h-6 w-6 cursor-pointer hidden xl:block" />
                         <div className="relative xl:hidden">
                             {menuModelClicked ? (
@@ -70,17 +71,17 @@ const Navbar = () => {
                     
                     <div className="flex items-center space-x-4">
                         <MagnifyingGlassIcon className="h-6 w-6 cursor-pointer" />
+                        <ThemeToggler />
                         
                         <div className={`${status==='authenticated' ? 'flex' : 'hidden'} items-center space-x-4`}>
                             <InboxIcon className="h-6 w-6 cursor-pointer hidden md:block" />
                             <BellIcon className="h-6 w-6 cursor-pointer hidden md:block" />
-                            <ThemeToggler />
                             <LogoutButton />
                             <Avatar />
                         </div>
 
                         <div className={`${status==='authenticated' ? 'hidden' : 'flex'} items-center space-x-4`}>
-                            <Link className='text-lg font-semibold text-black dark:text-white' href='/auth/login'>Login</Link>
+                            <Link className='text-lg hidden md:block font-semibold text-black dark:text-white' href='/auth/login'>Login</Link>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import { ChartBarSquareIcon, DocumentTextIcon, UserCircleIcon, UsersIcon } from "@heroicons/react/24/outline";
+import { ChartBarSquareIcon, DocumentTextIcon, UserCircleIcon, UserGroupIcon, UsersIcon } from "@heroicons/react/24/outline";
 import { FunctionComponent } from "react";
 
 interface MenuModelProps {
@@ -17,7 +17,7 @@ const MenuModel: FunctionComponent<MenuModelProps> = ({clicked}) => {
                 <h1>Members</h1>
             </div>
             <div className="flex items-center cursor-pointer space-x-4 mt-4 lg:mt-0">
-                <UsersIcon className="h-6 w-6"/>
+                <UserGroupIcon className="h-6 w-6"/>
                 <h1>Groups</h1>
             </div>
             <div className="flex items-center cursor-pointer space-x-4 mt-4">
