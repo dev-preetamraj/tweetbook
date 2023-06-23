@@ -1,25 +1,14 @@
-import Head from 'next/head';
-import { useSession } from "next-auth/react";
+import Head from "next/head";
 import emailImage from '@/assets/images/email.png';
-import LoginForm from '@/components/login/LoginForm';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
+import LoginForm from "@/components/login/LoginForm";
+import RegisterForm from "@/components/register/RegisterForm";
+import Link from "next/link";
 
-const LoginPage = () => {
-    const session = useSession();
-    const router = useRouter();
-
-    useEffect(() => {
-        if(session.status === 'authenticated') {
-            router.push('/');
-        }
-    }, [session]);
-    
+const RegisterPage = () => {
     return (
         <>
             <Head>
-                <title>TweetBook | Login</title>
+                <title>TweetBook | Register</title>
                 <meta content="Let's connect together on tweetbook - login" />
             </Head>
 
@@ -48,15 +37,15 @@ const LoginPage = () => {
                         </div>
                     </div>
 
-                    <h1 className='text-2xl font-semibold'>Log In</h1>
+                    <h1 className='text-2xl font-semibold'>Register</h1>
 
-                    <LoginForm />
+                    <RegisterForm />
 
                     <div className='flex flex-col items-center justify-center'>
                         <p>
                             <span className='font-semibold'>Terms of Service</span> and <span className='font-semibold'>Privacy Policy</span>
                         </p>
-                        <p className='mt-4'>Do not have an account? <Link href='/auth/register' className='underline underline-offset-4 font-medium'>Register Here</Link></p>
+                        <p className='mt-4'>Already have an account? <Link href='/auth/login' className='underline underline-offset-4 font-medium'>Login Here</Link></p>
                     </div>
                 </div>
             </div>
@@ -64,4 +53,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default RegisterPage;

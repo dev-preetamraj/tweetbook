@@ -125,7 +125,7 @@ const MenuDrawer: FunctionComponent<MenuDrawerProps> = ({
                                 <h1 className="font-semibold">{item.title}</h1>
                                 <div className="flex flex-col space-y-4 px-4">
                                     {item.menu.map(subItem => (
-                                        <div className="flex items-center space-x-4 cursor-pointer">
+                                        <div key={subItem.title} className="flex items-center space-x-4 cursor-pointer">
                                             {subItem.icon}
                                             <h1>{subItem.title}</h1>
                                         </div>
