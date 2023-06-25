@@ -17,8 +17,6 @@ const RegisterForm = () => {
         initialValues: {
             email: '',
             username: '',
-            first_name: '',
-            last_name: '',
             password: '',
             confirm_password: ''
         },
@@ -29,24 +27,23 @@ const RegisterForm = () => {
             const {
                 email,
                 username,
-                first_name,
-                last_name,
                 password,
                 confirm_password
             } = values;
 
             try {
-                const res = await baseQuery.post('/auth/register', {
+                const res = await baseQuery.post('/auth/users', {
                     email,
                     username,
-                    first_name,
-                    last_name,
                     password,
                     confirm_password
                 });
 
+                console.log(res.data);
+                
+
                 const signInRes =  await signIn('credentials', {
-                    username,
+                    email,
                     password,
                     redirect: false
                 }); 
@@ -71,22 +68,6 @@ const RegisterForm = () => {
             onSubmit={formik.handleSubmit}
         >
             <div className='flex items-center border rounded-md px-2 py-1'>
-                <UserIcon className='w-6 h-6' />
-                <input
-                    name='username'
-                    type="text"
-                    className='bg-transparent px-4 py-2 outline-none w-full'
-                    placeholder='Username'
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.username}
-                />
-            </div>
-            {formik.touched.username && formik.errors.username ? (
-                <Messages type='error' message={formik.errors.username} />
-            ) : null}
-
-            <div className='flex items-center border rounded-md px-2 py-1'>
                 <AtSymbolIcon className='w-6 h-6' />
                 <input
                     name='email'
@@ -105,33 +86,17 @@ const RegisterForm = () => {
             <div className='flex items-center border rounded-md px-2 py-1'>
                 <UserIcon className='w-6 h-6' />
                 <input
-                    name='first_name'
+                    name='username'
                     type="text"
                     className='bg-transparent px-4 py-2 outline-none w-full'
-                    placeholder='First Name'
+                    placeholder='Username'
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    value={formik.values.first_name}
+                    value={formik.values.username}
                 />
             </div>
-            {formik.touched.first_name && formik.errors.first_name ? (
-                <Messages type='error' message={formik.errors.first_name} />
-            ) : null}
-
-            <div className='flex items-center border rounded-md px-2 py-1'>
-                <UserIcon className='w-6 h-6' />
-                <input
-                    name='last_name'
-                    type="text"
-                    className='bg-transparent px-4 py-2 outline-none w-full'
-                    placeholder='Last Name'
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.last_name}
-                />
-            </div>
-            {formik.touched.last_name && formik.errors.last_name ? (
-                <Messages type='error' message={formik.errors.last_name} />
+            {formik.touched.username && formik.errors.username ? (
+                <Messages type='error' message={formik.errors.username} />
             ) : null}
 
             <div className='flex items-center border rounded-md px-2 py-1'>

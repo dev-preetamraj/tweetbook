@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useFormik } from 'formik';
 import { toast } from 'react-toastify';
 import { signIn, useSession } from "next-auth/react";
-import {UserIcon, KeyIcon} from '@heroicons/react/24/outline';
+import { KeyIcon, AtSymbolIcon} from '@heroicons/react/24/outline';
 import { Messages } from '@/components/ui/Messages';
 import { loginValidationSchema } from '@/schemas/loginSchema';
 import { useState } from 'react';
@@ -13,17 +13,17 @@ const LoginForm = () => {
 
     const formik = useFormik({
         initialValues: {
-            username: '',
+            email: '',
             password: ''
         },
         validationSchema: loginValidationSchema,
         onSubmit: async (values) => {
             setLoading(true);
 
-            const {username, password} = values;
+            const {email, password} = values;
             
             const res =  await signIn('credentials', {
-                username,
+                email,
                 password,
                 redirect: false
             });
@@ -44,19 +44,19 @@ const LoginForm = () => {
             onSubmit={formik.handleSubmit}
         >
             <div className='flex items-center border rounded-md px-2 py-1'>
-                <UserIcon className='w-6 h-6' />
+                <AtSymbolIcon className='w-6 h-6' />
                 <input
-                    name='username'
-                    type="text"
+                    name='email'
+                    type="email"
                     className='bg-transparent px-4 py-2 outline-none w-full'
-                    placeholder='Username'
+                    placeholder='Email'
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    value={formik.values.username}
+                    value={formik.values.email}
                 />
             </div>
-            {formik.touched.username && formik.errors.username ? (
-                <Messages type='error' message={formik.errors.username} />
+            {formik.touched.email && formik.errors.email ? (
+                <Messages type='error' message={formik.errors.email} />
             ) : null}
 
             <div className='flex items-center border rounded-md px-2 py-1'>

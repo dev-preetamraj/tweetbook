@@ -12,14 +12,14 @@ const authOptions: NextAuthOptions = {
         CredentialsProvider({
             name: 'Credentials',
             credentials: {
-                username: { label: "Username", type: "text", placeholder: "Username" },
+                email: { label: "Email", type: "email", placeholder: "Email" },
                 password: { label: "Password", type: "password", placeholder: 'Password' }
             },
             authorize: async (credentials, req) => {
                 try {
-                    const {username, password} = credentials as {username: string, password: string};
+                    const {email, password} = credentials as {email: string, password: string};
                     const res = await baseQuery.post('/auth/token', {
-                        username: username,
+                        email: email,
                         password: password
                     });
                     

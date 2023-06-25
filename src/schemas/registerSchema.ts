@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-const emailRegex = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+const emailRegex = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
 
 export const registerValidationSchema = Yup.object({
     email: Yup.string()
@@ -8,8 +8,6 @@ export const registerValidationSchema = Yup.object({
         .required('Email is required!'),
     username: Yup.string()
         .required('Username is required!'),
-    first_name: Yup.string(),
-    last_name: Yup.string(),
     password: Yup.string()
         .required('Password is Required!')
         .min(8, 'Password must be 8 characters long!'),
